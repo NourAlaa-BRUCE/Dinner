@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Meal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Bootstrap.css">
+    <link rel="stylesheet" href="fonts/css/all.min.css">
+
+</head>
+
+<body style="background-color: rgb(255 251 234);">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3 shadow-sm d-flex justify-content-center px-3">
+        <div class="width-80 d-flex justify-content-between align-items-center">
+
+            <div class="left d-flex align-items-center gap-3">
+                <div>
+                    <i class="fa-solid d-flex justify-content-center align-items-center text-white fs-5 rounded-circle fa-utensils"
+                        style="padding: 15px 25px; background: linear-gradient(to right,rgb(255 97 0),rgb(253 72 51));">
+                    </i>
+                </div>
+                <div>
+                    <h1 class="fs-4 fw-bold m-0">What's For Dinner</h1>
+                    <small class="text-secondary">Your daily meal inspiration</small>
+                </div>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#rightMenu"
+                aria-controls="rightMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="rightMenu">
+                <div class="right navbar-nav d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                    <i class="fa-solid fs-5 text-dark-emphasis fa-bookmark"></i>
+                    <i class="fa-solid fs-5 text-dark-emphasis fa-clock-rotate-left"></i>
+                    <i class="fa-solid fs-5 text-dark-emphasis fa-gear"></i>
+                    <img src="images/avatar-2.jpg" class="rounded-circle border border-2 border-warning" width="40"
+                        height="40" alt="">
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <section class="d-flex justify-content-center" style="margin-top: 30px;">
+        <div class="bg-white mb-5 width-80 rounded-4 mx-3 row overflow-hidden" style="box-shadow: 0 10px 20px rgb(186, 186, 186); border: 1px rgb(255 237 212) solid;">
+            <div class="col-lg-5 p-0">
+                <figure  class=" h-100 position-relative">
+                    <div id="image" class="h-100"></div>
+                    <div class="position-absolute d-flex align-items-center gap-2 bg-white px-3 py-2 rounded-5 z-3" style="top: 1.5rem; left: 1.5rem;">
+                        <i class="fa-solid fa-star text-warning"></i>
+                        <span id="ratingsAverage" class="fw-medium"></span>
+                        <small class="text-secondary">(<span id="ratingsQuantity"></span> reviews)</small>
+                    </div>
+                    <div class="text-center position-absolute d-flex align-items-center justify-content-around rounded-4 bg-white py-4" style="width: 90%; bottom: 1.5rem; left:5%;">
+                        <div>
+                            <i class="fa-solid fa-clock fs-4" style="color: rgb(255, 115, 0)"></i>
+                            <div><small class="text-secondary">Prep Time</small></div>
+                            <div id="prepTime" class="fw-bold"></div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-fire-burner text-danger fs-4"></i>
+                            <div><small class="text-secondary">Cook Time</small></div>
+                            <div id="cookTime" class="fw-bold"></div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-users text-primary fs-4"></i>
+                            <div><small class="text-secondary">Serving</small></div>
+                            <div id="servings" class="fw-bold"></div>
+                        </div>
+                        
+                        
+                    </div>
+                </figure>
+            </div>
+            <div class="col-lg-7 p-0 " >
+                <div class="inner text-center pb-0 overflow-scroll scroll-section" style=" height: 750px; padding: 2.5rem;">
+
+
+                    <div class="d-flex justify-content-start align-items-center gap-2">
+                        <small id="difficulty" class=" text-success rounded-5" style="padding: 2px 10px; font-weight: 500;background-color: rgba(0, 128, 0, 0.148);"></small>
+                        <small id="category" class=" text-primary bg-primary-subtle rounded-5" style="padding: 2px 10px; font-weight: 500;"></small>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center my-3">
+                        <h1 id="name" class="fw-bold mt-2 m-0"></h1>
+                        <div class="d-flex align-items-center justify-content-center gap-2">
+                            <i class="fa-solid fa-bookmark fs-5 py-3 px-4 rounded-3 d-flex align-items-center justify-content-center"
+                                style="color: rgb(245 74 0);background-color: rgba(245, 143, 0, 0.148);"></i>
+                            <i class="fa-solid fa-share-nodes fs-5 py-3 px-4 rounded-3 d-flex align-items-center justify-content-center"
+                                style="color: rgb(245 74 0);background-color: rgba(245, 143, 0, 0.148);"></i>
+                        </div>
+                    </div>
+                    <p id="description" class="text-start text-dark-emphasis" style="font-size: large;"></p>
+                    <div id="timedOut" class="mt-4 d-flex align-items-center gap-2 p-3 rounded-3 visually-hidden" style="border-left: 4px solid rgb(245, 0, 0);background-color: rgba(255, 0, 0, 0.062);">
+                        <i class="fa-solid fa-warning text-danger fs-4"></i>
+                        <div class="text-start">
+                            <span class="fw-bold text-danger">Extended Preparation Time</span>
+                            <div><small class="text-danger">This recipe requires more than 45 minutes to prepare. Plan accordingly!</small></div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <ul class="nav nav-pills mb-3 d-flex gap-4 justify-content-center" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class=" nav-link active" id="pills-Buying-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-Buying" type="button" role="tab" aria-controls="pills-Buying"
+                                    aria-selected="true">
+                                    <i class="fa-solid fa-list-check text-secondary"></i>
+                                    <span class="text-secondary">Ingredients</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class=" nav-link" id="pills-Selling-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-Selling" type="button" role="tab"
+                                    aria-controls="pills-Selling" aria-selected="false">
+                                    <i class="fa-solid fa-book-open text-secondary"></i>
+                                    <span class="text-secondary">Instructions</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class=" nav-link" id="pills-Renting-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-Renting" type="button" role="tab"
+                                    aria-controls="pills-Renting" aria-selected="false">
+                                    <i class="fa-solid fa-chart-pie text-secondary"></i>
+                                    <span class="text-secondary">Nutrition</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class=" nav-link" id="pills-Investing-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-Investing" type="button" role="tab"
+                                    aria-controls="pills-Investing" aria-selected="false">
+                                    <i class="fa-solid fa-lightbulb text-secondary"></i>
+                                    <span class="text-secondary">Chef's Tips</span>
+                                </button>
+                            </li>
+                        </ul>
+                        <hr class="mb-0">
+                        <div class="tab-content my-4" id="pills-tabContent ">
+                            <div class="scroll-section tab-pane fade show active container overflow-y-scroll p-0"style="height: 350px;" id="pills-Buying" role="tabpanel"
+                                aria-labelledby="pills-home-tab" tabindex="0">
+
+                                <div id="ingredients" class="text-start px-4 py-2 rounded-4" style="background-color: rgb(255 249 235);"></div>
+                            </div>
+
+
+                            <div class="overflow-y-scroll scroll-section tab-pane fade container " style="height: 350px;" id="pills-Selling" role="tabpanel"
+                                aria-labelledby="pills-profile-tab" tabindex="0">
+
+                                <div id="instructions" class="text-start"></div>
+                            </div>
+
+
+                            <div class="overflow-y-scroll scroll-section tab-pane fade container" style="height: 350px;" id="pills-Renting" role="tabpanel"
+                                aria-labelledby="pills-contact-tab" tabindex="0">
+
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center gap-2 p-3 rounded-4" style="background-color: rgb(251 249 250);">
+                                            <div class="left d-flex align-items-center gap-1">
+                                                <i class="fa-solid fa-fire d-flex justify-content-center align-items-center rounded-3" style="padding:12px 20px; color: orangered;background-color: rgba(255, 166, 0, 0.164);"></i>
+                                                <span style="font-weight: 500;" class="mx-2 text-dark-emphasis">Calories</span>
+                                            </div>
+                                            <h2 id="calories" class="right fs-5 m-0 fw-bold ">
+                                                
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center gap-2 p-3 rounded-4" style="background-color: rgb(251 249 250);">
+                                            <div class="left d-flex align-items-center gap-1">
+                                                <i class="fa-solid fa-dumbbell d-flex justify-content-center align-items-center rounded-3" style="padding:12px 20px; color: rgb(0, 98, 255);background-color: rgba(0, 76, 255, 0.139);"></i>
+                                                <span style="font-weight: 500;" class="mx-2 text-dark-emphasis">Protein</span>
+                                            </div>
+                                            <h2 id="protein" class="right fs-5 m-0 fw-bold ">
+                                                
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center gap-2 p-3 rounded-4" style="background-color: rgb(251 249 250);">
+                                            <div class="left d-flex align-items-center gap-1">
+                                                <i class="fa-solid fa-wheat-awn d-flex justify-content-center align-items-center rounded-3" style="padding:12px 20px; color: rgb(164, 84, 60);background-color: rgba(255, 244, 35, 0.237);"></i>
+                                                <span style="font-weight: 500;" class="mx-2 text-dark-emphasis">Carbohydrates</span>
+                                            </div>
+                                            <h2 id="carbs" class="right fs-5 m-0 fw-bold ">
+                                                
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center gap-2 p-3 rounded-4" style="background-color: rgb(251 249 250);">
+                                            <div class="left d-flex align-items-center gap-1">
+                                                <i class="fa-solid fa-droplet d-flex justify-content-center align-items-center rounded-3" style="padding:12px 20px; color: rgb(255, 0, 0);background-color: rgba(255, 0, 0, 0.132);"></i>
+                                                <span style="font-weight: 500;" class="mx-2 text-dark-emphasis">Fat</span>
+                                            </div>
+                                            <h2 id="fat" class="right fs-5 m-0 fw-bold ">
+                                                
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center gap-2 p-3 rounded-4" style="background-color: rgb(251 249 250);">
+                                            <div class="left d-flex align-items-center gap-1">
+                                                <i class="fa-solid fa-seedling d-flex justify-content-center align-items-center rounded-3" style="padding:12px 20px; color: rgb(3, 150, 1);background-color: rgba(53, 228, 0, 0.164);"></i>
+                                                <span style="font-weight: 500;" class="mx-2 text-dark-emphasis">Fiber</span>
+                                            </div>
+                                            <h2 id="fiber" class="right fs-5 m-0 fw-bold ">
+                                                
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center gap-2 p-3 rounded-4" style="background-color: rgb(251 249 250);">
+                                            <div class="left d-flex align-items-center gap-1">
+                                                <i class="fa-solid fa-cube d-flex justify-content-center align-items-center rounded-3" style="padding:12px 20px; color: rgb(218, 0, 156);background-color: rgba(255, 0, 200, 0.105);"></i>
+                                                <span style="font-weight: 500;" class="mx-2 text-dark-emphasis">Sodium</span>
+                                            </div>
+                                            <h2 id="sodium" class="right fs-5 m-0 fw-bold ">
+                                                
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="overflow-y-scroll scroll-section tab-pane fade container " style="height: 350px;" id="pills-Investing" role="tabpanel"
+                                aria-labelledby="pills-disabled-tab" tabindex="0">
+
+                                <div id="tips"></div>
+                            </div>
+
+                        </div>
+                        <hr>
+
+                    </div>
+                    <button onclick="switchMeal()" class="d-flex align-items-center py-3 px-3 text-white rounded-4 border-0 fw-bold gap-2 mt-4" style="background:linear-gradient(to right ,rgb(255 104 0),rgb(251 44 54));">
+                        <i class="fa-solid fa-rotate"></i>
+                        <span>Try Another Recipe</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/index.js"></script>
+    <script src="js/Bootstrap.js"></script>
+</body>
+
+</html>
